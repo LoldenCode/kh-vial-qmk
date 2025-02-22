@@ -81,6 +81,18 @@ static void print_status_narrow(void) {
     
 }
 
+<<<<<<< HEAD
+=======
+#ifdef AUTO_SHIFT_ENABLE
+
+    bool autoshift = get_autoshift_state();
+    oled_advance_page(true);
+    oled_write_P(PSTR("Auto-Shift"), autoshift);
+    oled_advance_page(true);
+    
+#endif
+
+>>>>>>> b7058c722c21f57b06eb38128a8b23368a3a3017
 bool oled_task_user(void) {
     // Render the OLED
     print_status_narrow();

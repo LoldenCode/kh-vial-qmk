@@ -28,8 +28,9 @@
 #define VIAL_KEYBOARD_UID { 0x05, 0xCD, 0x9F, 0x8A, 0xF4, 0xDF, 0xDE, 0xB2 }
 
 // Adding buffer for computer reboot.  You wont be able to get into bios with this delay.  remove if youd rather unplug/replug keyboard on reboot.
-#define SPLIT_USB_TIMEOUT 10000
-#define SPLIT_USB_TIMEOUT_POLL 10
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT 2000
+#define MASTER_RIGHT
 
 
 // The four corners
