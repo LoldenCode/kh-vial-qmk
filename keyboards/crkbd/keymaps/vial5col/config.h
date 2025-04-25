@@ -16,6 +16,21 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+/**
+ * define EE_HANDS in order to be able to plug the right half of the keyboard to the computer.
+ * otherwise that half thinks it's the left side and the entire keyboard is a mirror image of
+ * what it should be.
+ *
+ * in order to use this, each half of the firmware needs to be compile specifically for the
+ * right or left halves:
+ *
+ * ```
+ * qmk flash -kb crkbd/rev1 -km vial5col -e CONVERT_TO=promicro_rp2040 -bl uf2-split-left
+ * qmk flash -kb crkbd/rev1 -km vial5col -e CONVERT_TO=promicro_rp2040 -bl uf2-split-right
+ * ```
+ */
+
 #pragma once
 
 #define VIAL_KEYBOARD_UID {0xE0, 0x25, 0xE6, 0x0C, 0xB4, 0x69, 0xCF, 0x66}
@@ -33,9 +48,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Select hand configuration */
 
-#define MASTER_LEFT
+// #define MASTER_LEFT
 // #define MASTER_RIGHT
-// #define EE_HANDS
+#define EE_HANDS
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_LED_COUNT 54
