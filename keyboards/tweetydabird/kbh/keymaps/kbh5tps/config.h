@@ -1,53 +1,51 @@
-/*
-Copyright 2019 @foostan
-Copyright 2020 Drashna Jaelre <@drashna>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-//* qmk flash -kb crkbd/rev1 -km vial -e CONVERT_TO=promicro_rp2040 -bl uf2-split-left
-//* qmk flash -kb crkbd/rev1 -km vial -e CONVERT_TO=promicro_rp2040 -bl uf2-split-right
+// Copyright 2022 Markus Knutsson (@TweetyDaBird)
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
 
-#define VIAL_KEYBOARD_UID {0x3B, 0x6B, 0xA0, 0x29, 0x80, 0x56, 0xED, 0xD1}
-#define VIAL_UNLOCK_COMBO_ROWS {0, 0}
-#define VIAL_UNLOCK_COMBO_COLS {0, 1}
-
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
-#define TAPPING_TERM 180
-
-//#define USE_MATRIX_I2C
-#ifdef KEYBOARD_crkbd_rev1_legacy
-#    undef USE_I2C
-#    define USE_SERIAL
-#endif
-
-/* Select hand configuration */
-
-//#define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
-#define EE_HANDS
+#define VIAL_KEYBOARD_UID {0x5F, 0xEC, 0xD8, 0x46, 0x91, 0x40, 0x1B, 0x09}
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT 2000
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 175
+// define TPS touch module
+#define AZOTEQ_IQS5XX_TPS43
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 127
+#define RGB_MATRIX_DEFAULT_HUE 32
+#define RGB_MATRIX_DEFAULT_SAT 127
+#define RGB_MATRIX_DEFAULT_SPD 32
+
+
+
+#define VIAL_UNLOCK_COMBO_ROWS {0, 0}
+#define VIAL_UNLOCK_COMBO_COLS {0, 5}
+
+// Static glow is ALWAYS on with RGBLIGHT
+#define RGBLIGHT_EFFECT_BREATHING
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
+#define LAYER_STATE_8BIT
+//#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200mmmmmmmmmmmmmmmmmmmmmmm-6666666666666666666666666666666666666666666666666666666666666666666666666666666666
+
+// Adding delay for when pc reboots.  Cant use bios with this.
+//#define SPLIT_USB_TIMEOUT 10000
+//#define SPLIT_USB_TIMEOUT_POLL 10
+
+
+// VIAL specific reduce memory8
+#define VIAL_COMBO_ENTRIES 24
+#define VIAL_TAP_DANCE_ENTRIES 24
+#define VIAL_KEY_OVERRIDE_ENTRIES 24
 
 #ifdef RGB_MATRIX_ENABLE
-#    define RGB_MATRIX_LED_COUNT 54
+#    define RGB_MATRIX_LED_COUNT 72
 #    define RGB_MATRIX_SPLIT \
-        { 27, 27 }
+        { 36, 36 }
 #    define SPLIT_TRANSPORT_MIRROR
 
 #   define ENABLE_RGB_MATRIX_ALPHAS_MODS
@@ -90,8 +88,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #endif
-
-//#define USE_SERIAL_PD2
-
-
-#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
