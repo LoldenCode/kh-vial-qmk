@@ -248,10 +248,6 @@ static void render_status(void) {
         case _ADJUST:
             oled_write_P(PSTR("Adjust"), false);
             break;
-        default:
-            sprintf(layer_misc, "MO(%01d) ", get_highest_layer(layer_state));
-	    oled_write(layer_misc, false);
-            break;
     }
 
     oled_write_P(PSTR("  "), false);
