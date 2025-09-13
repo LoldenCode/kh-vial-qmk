@@ -29,9 +29,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #define AZOTEQ_IQS5XX_TPS43
+#define POINTING_DEVICE_DEBUG
 
 #pragma once
-#define AZOTEQ_IQS5XX_TWO_FINGER_TAP_ENABLE false
+
+#define AZOTEQ_IQS5XX_TPS43
+#define AZOTEQ_IQS5XX_TAP_ENABLE true
+#define AZOTEQ_IQS5XX_TWO_FINGER_TAP_ENABLE true
+#define AZOTEQ_IQS5XX_SWIPE_X_ENABLE false
+#define AZOTEQ_IQS5XX_SWIPE_Y_ENABLE false
+#define AZOTEQ_IQS5XX_ZOOM_ENABLE   false
+
+// Sensitivity tuning
+#define AZOTEQ_IQS5XX_TAP_TIME 100
+#define AZOTEQ_IQS5XX_TAP_DISTANCE 8
+#define AZOTEQ_IQS5XX_HOLD_TIME 400
+#define AZOTEQ_IQS5XX_TIMEOUT_MS 2
+
+
 /* Space reduction */
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6

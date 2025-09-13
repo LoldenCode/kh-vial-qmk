@@ -162,6 +162,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+#include "print.h"
+#include "debug.h"
+
+void keyboard_post_init_user(void) {
+    debug_enable = true;
+    debug_mouse  = true;
+    uprintf("Console alive (RP2040 serial)\n");
+}
+
 #ifdef OLED_ENABLE
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
