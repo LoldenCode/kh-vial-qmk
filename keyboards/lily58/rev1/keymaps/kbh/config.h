@@ -30,6 +30,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define AZOTEQ_IQS5XX_TPS43
 
+#pragma once
+#define AZOTEQ_IQS5XX_TWO_FINGER_TAP_ENABLE false
 /* Space reduction */
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
